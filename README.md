@@ -45,7 +45,6 @@ Now make the virtual host file for the directory of the site you made before.
 Put the following in the file:
 ```
 <VirtualHost *:80>
-
     ServerName www.ba21.xyz
     ServerAlias ba21.xyz
     DocumentRoot /var/www/ba21.xyz/public_html
