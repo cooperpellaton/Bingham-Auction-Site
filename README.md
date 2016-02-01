@@ -63,4 +63,6 @@ Lastly, restart Apache to see if your configuration worked and the changes took!
 
 
 ###Configuration de base de données du serveur.
-I've also included the setup scripts for [mariaDB](https://mariadb.org/) and [phpMyAdmin](https://www.phpmyadmin.net/) so that you can easily store the information of bidders and return, in real time, the highest bidding price so that visitors of your site will know how much it will cost them to get that futon!
+Found in the `server` folder are the proper configuration files for your server to enable `phpMyAdmin` to work nicely with Apache. I had a lot of trouble with this so at the very least this will be a future stop for me to find these files again.
+
+Once you have the server configured, simply make a new database and a table, change those values in the `index.php` file and then everything will work perfectly for you!
