@@ -64,4 +64,4 @@ Lastly, restart Apache to see if your configuration worked and the changes took!
 
 
 ###Configuration de base de données du serveur.
-I've also included the setup scripts for ![mariaDB](https://mariadb.org/) and ![phpMyAdmin](https://www.phpmyadmin.net/) so that you can easily store the information of bidders and return, in real time, the highest bidding price so that visitors of your site will know how much it will cost them to get that futon!
+I've also included the setup scripts for [mariaDB](https://mariadb.org/) and [phpMyAdmin](https://www.phpmyadmin.net/) so that you can easily store the information of bidders and return, in real time, the highest bidding price so that visitors of your site will know how much it will cost them to get that futon!
