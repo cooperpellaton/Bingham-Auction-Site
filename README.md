@@ -6,7 +6,7 @@
 This is a pretty simple idea. Some friends had a futon they wanted to rent for :cupid: Valentine's day :moneybag: and I had some spare server space to put up an :moneybag: auction site :moneybag:. This is a pretty simple `Bootstrap` and `GitHub Markdown` implementation. This is clean, simple and gets to the point.
 
 ###L'utilisation de cette.
-Clone this entire repo. If you open this `index.html` file without making any changes it should look like this:
+Clone this entire repo. If you open this `index.php` file without making any changes it should look like this:
 ![](initial_screenshot.png)
 
 Make your desired edits and then run the server setup file I've included in this repo. Once you configure the virtual hosts and point your domain at the IP of your sever everything should work.
