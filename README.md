@@ -66,3 +66,13 @@ Lastly, restart Apache to see if your configuration worked and the changes took!
 Found in the `server` folder are the proper configuration files for your server to enable `phpMyAdmin` to work nicely with Apache. I had a lot of trouble with this so at the very least this will be a future stop for me to find these files again.
 
 Once you have the server configured, simply make a new database and a table, change those values in the `index.php` file and then everything will work perfectly for you!
+
+###Protéger contre les attaques.
+Because we're using open form fields this site will be a prime target for XSS and SQL injection vulnerabilities! Don't let this be you!! I've included some handling in the PHP to strip all non-numeric values from the `bid` field and you can see the code:
+
+```
+$bid = $_POST['bid'];
+$validated_bid = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $bid);
+```
+
+I'd recommend you take at least the above protection, if not more, so that you can prevent your DB from being cracked/stolen or having your viewport hijacked.

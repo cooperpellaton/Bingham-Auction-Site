@@ -48,14 +48,16 @@
 	$result = $conn->query($sql);
 	$row  = $result->fetch_assoc();
 	$max_bid = $row['max'];
+	$len = strlen($max_bid);
 	echo '<div style = "text-align: center" class="alert alert-info" role="alert">Current bid: $'.$max_bid.'</div>';
 
 	if(isset($_POST['email']) && isset($_POST['bid'])){
 		$email = $_POST['email'];
 		$bid = $_POST['bid'];
+		$validated_bid = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $bid);
 		$ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
 
-		$sql = "INSERT INTO bids (ip, email, bid) VALUES ('".$ip."', '".$email."', '".$bid."')";
+		$sql = "INSERT INTO bids (ip, email, bid) VALUES ('".$ip."', '".$email."', '".$validated_bid."')";
 
 		if ($conn->query($sql) === TRUE) {
 			echo '
@@ -71,7 +73,7 @@
 <body class = "markdown-body">
 	<div class="container" id="container">
 		<h1 class="text-center">RENT THE BINGHAM A21 FUTON</h1>
-		<p class="text-center">Are you going to be sexiled, alone, or just want to change it up on Valentine's day 2016? If any of the former describes you then you should consider making a bid to come stay in the most dope, insane, sick suite in Bingham!</p>
+		<p class="text-center">Are you going to be sexiled, alone, or just want to change it up on Valentine's day 2016? BOY DO WE HAVE THE FUTON FOR YOU. PLAN AHEAD! Stunning view of Welch! Stuffed animal to keep you company! (pls halp us raise funds for our printer ink)</p>
 		<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
 				<div class='lightbox-content'>
 					<img src="12647800_908398585934071_1222748780_n.jpg">
