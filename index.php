@@ -31,86 +31,83 @@
 	<link type="text/plain" rel="author" href="/humans.txt" />
 </head>
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "your_password_goes_here";
-	$dbname = "binghamAuction";
+    $servername = 'localhost';
+    $username = 'root';
+    $password = 'your_password_goes_here';
+    $dbname = 'binghamAuction';
 
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+    // Check connection
+    if ($conn->connect_error) {
+        die('Connection failed: '.$conn->connect_error);
+    }
 
-	$sql = "SELECT MAX(bid) AS max FROM bids";
-	$result = $conn->query($sql);
-	$row  = $result->fetch_assoc();
-	$max_bid = $row['max'];
-	$len = strlen($max_bid);
-	echo '<div style = "text-align: center" class="alert alert-info" role="alert">Current bid: $'.$max_bid.'</div>';
+    $sql = 'SELECT MAX(bid) AS max FROM bids';
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $max_bid = $row['max'];
+    $len = strlen($max_bid);
+    echo '<div style = "text-align: center" class="alert alert-info" role="alert">Current bid: $'.$max_bid.'</div>';
 
-	if(isset($_POST['email']) && isset($_POST['bid'])){
-		$email = $_POST['email'];
-		$bid = $_POST['bid'];
-		$validated_bid = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $bid);
-		$ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+    if (isset($_POST['email']) && isset($_POST['bid'])) {
+        $email = $_POST['email'];
+        $bid = $_POST['bid'];
+        $validated_bid = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', '', $bid);
+        $ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
 
-		$sql = "INSERT INTO bids (ip, email, bid) VALUES ('".$ip."', '".$email."', '".$validated_bid."')";
+        $sql = "INSERT INTO bids (ip, email, bid) VALUES ('".$ip."', '".$email."', '".$validated_bid."')";
 
-		if ($conn->query($sql) === TRUE) {
-			echo '
+        if ($conn->query($sql) === true) {
+            echo '
 			<div style = "text-align: center" class="alert alert-success" role="alert">Bid Submitted Sucessefully!</div>';
-		} else {
-			echo "Error: " . $sql . "<br>" . $conn->error;
-		}
+        } else {
+            echo 'Error: '.$sql.'<br>'.$conn->error;
+        }
 
-		$conn->close();
-	}
+        $conn->close();
+    }
 
 ?>
 <body class = "markdown-body">
 	<div class="container" id="container">
 		<h1 class="text-center">RENT THE BINGHAM A21 FUTON</h1>
 		<p class="text-center">Are you going to be sexiled, alone, or just want to change it up on Valentine's day 2016? BOY DO WE HAVE THE FUTON FOR YOU. PLAN AHEAD! Stunning view of Welch! Stuffed animal to keep you company! (pls halp us raise funds for our printer ink)</p>
-		<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
-				<div class='lightbox-content'>
-					<img src="12647800_908398585934071_1222748780_n.jpg">
-					<div class="lightbox-caption"><p>Your caption here</p></div>
-				</div>
-		</div>
 
-		<div id="myCarousel" class="carousel slide center-block" data-ride="carousel" style = "width: 650px" style = "height 500px">
+		<div id="myCarousel" class="carousel slide center-block container-fluid" data-ride="carousel" >
+		        <div class="container" id="container">
 		        <!-- Carousel indicators -->
 		        <ol class="carousel-indicators">
 		            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		            <li data-target="#myCarousel" data-slide-to="1"></li>
-								<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
 		        </ol>
+		        </div>
 		        <!-- Wrapper for carousel items -->
 		        <div class="carousel-inner">
 		            <div class="item active">
-		                <img class = "img-responsive center-block" src="images/12647800_908398585934071_1222748780_n.jpg" alt="First Slide">
+		                <img class = "img-responsive center-block" src="images/12647800_908398585934071_1222748780_n.jpg" alt="First Slide" style = "">
 		            </div>
 		            <div class="item">
-		                <img class = "img-responsive center-block" src="images/12650481_908398602600736_1277352818_n.jpg" alt="Second Slide">
+		                <img class = "img-responsive center-block" src="images/12650481_908398602600736_1277352818_n.jpg" alt="Second Slide" style = "">
 		            </div>
 								<div class="item">
-		                <img class = "img-responsive center-block" src="images/12637319_908873682553228_1007684711_o.jpg" alt="Third Slide">
+		                <img class = "img-responsive center-block" src="images/12637319_908873682553228_1007684711_o.jpg" alt="Third Slide" style = "">
 		            </div>
 		        </div>
 		        <!-- Carousel controls -->
-		        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+		        <!-- <a class="carousel-control left" href="#myCarousel" data-slide="prev">
 		            <span class="glyphicon glyphicon-chevron-left"></span>
 		        </a>
 		        <a class="carousel-control right" href="#myCarousel" data-slide="next">
 		            <span class="glyphicon glyphicon-chevron-right"></span>
-		        </a>
+		        </a> -->
 		    </div>
+		   </div>
 
-	</div>
-	<div style = "padding-top:20px">
+	<div>
+		<div style = "padding-top:20px">
 		<div class = "container">
 		<div class = "col-md-6 col-md-offset-3">
 			<form class = "content center" method = "post" action = "">
